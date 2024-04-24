@@ -65,7 +65,7 @@ public class Sistema {
         System.out.print("Tipo de sobremesa: (Bolo, Brigadeiro...)");
         tipo = Console.lerString();
 
-        Sobremesa s = new Sobremesa(nome, preco, sabor, tipo);
+        Sobremesa s = new Sobremesa(nome, preco, tipo);
         Cadastro.cadastrar(s);
         System.out.println("\nSobremesa cadastrada com sucesso!");
     }

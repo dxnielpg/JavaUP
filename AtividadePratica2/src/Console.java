@@ -25,7 +25,7 @@ public class Console {
         return valor;
     }
 
-    public static double lerdouble() {
+    public static double lerDouble() {
         double valor = leitor.nextDouble();
         leitor.nextLine();
         return valor;
