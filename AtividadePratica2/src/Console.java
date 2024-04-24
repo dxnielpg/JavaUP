@@ -1,7 +1,7 @@
+import java.util.Scanner;
+
 public class Console {
     
-    import java.util.Scanner;
-
     public class Console {
     
         private static Scanner leitor = new Scanner(System.in);
