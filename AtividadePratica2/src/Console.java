@@ -25,4 +25,10 @@ public class Console {
         return valor;
     }
 
+    public static double lerdouble() {
+        double valor = leitor.nextDouble();
+        leitor.nextLine();
+        return valor;
+    }
+ 
 }
