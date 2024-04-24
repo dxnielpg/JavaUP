@@ -145,7 +145,7 @@ public class Sistema {
     
         }
     
-        private static  ListarAlimento(){
+        private static ListarAlimento(){
             System.out.println("\nEsses são todos os alimentos cadastrados: :");
     
                     if (Cadastro.getListaAlimento().size() == 0) {
