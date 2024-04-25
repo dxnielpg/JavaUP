@@ -1,18 +1,21 @@
 public class Sobremesa extends Alimento {
-    String tipo; // tipo: Sorvete, Brigadeiro, Bolo
+    String tamanho; // Pequeno-Grande-Medio
 
-    public String getTipo() {
-        return tipo;
+    public String getTamanho() {
+        return tamanho;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTamanho(String tamanho) {
+        this.tamanho = tamanho;
     }
 
-    public Sobremesa(String nome, double preco, String tipo) {
+    public Sobremesa(String nome, double preco, String tamanho) {
         super(nome, preco);
-        this.tipo = tipo;
+        this.tamanho = tamanho;
     }
 
-    
+    @Override
+    public String toString() {
+        return "\nNome da sobremesa: " + getNome() + "\npreço: " + getPreco() + "tamanho" + tamanho;
+    }
 }

@@ -1,6 +1,6 @@
 public class Sistema {
 
-    private static String nome, sabor, tipo, temperatura;
+    private static String nome, sabor, tamanho, temperatura;
     private static double preco;
 
     private static void exibirMenu() {
@@ -10,6 +10,8 @@ public class Sistema {
         System.out.println("3) Registrar novo Sobremesa");
         System.out.println("4) Procurar Alimento");
         System.out.println("5) Lista de todos alimentos");
+        System.out.println("6) Excluir um alimento");
+        System.out.println("7) Excluir todos alimentos");
         System.out.println("0) Sair");
         System.out.print("Informe uma opção: ");
     }
@@ -31,8 +33,15 @@ public class Sistema {
             case 5:
                 listarAlimento();
                 break;
+            case 6:
+                removerAlimento();
+                break;           
+            case 7:
+                removerTodos();
+                break;
+            
             case 0:
-                System.out.println("\nFinalizado :) !");
+                System.out.println("\n Programa Finalizado :) !");
                 break;
             default:
                 System.out.println("\nOpção inválida. Digite novamente.");
@@ -42,11 +51,11 @@ public class Sistema {
 
     private static void registrarCha() {
         System.out.println("\n Novo Chá:");
-        System.out.print("Nome: ");
+        System.out.print("\nNome: ");
         nome = Console.lerString();
-        System.out.print("Preço: ");
+        System.out.print("\nPreço: ");
         preco = Console.lerDouble();
-        System.out.print("Quente ou Frio: ");
+        System.out.print("\nQuente ou Frio: ");
         temperatura = Console.lerString();
 
         Cha c = new Cha(nome, preco, temperatura);
@@ -56,16 +65,14 @@ public class Sistema {
 
     private static void registrarSobremesa() {
         System.out.println("\nNova Sobremesa:");
-        System.out.print("Nome: ");
+        System.out.print("\nNome: ");
         nome = Console.lerString();
-        System.out.print("Preço: ");
+        System.out.print("\nPreço: ");
         preco = Console.lerDouble();
-        System.out.print("Sabor: ");
-        sabor = Console.lerString();
-        System.out.print("Tipo de sobremesa: (Bolo, Brigadeiro...)");
-        tipo = Console.lerString();
+        System.out.print("\nTamanho da sobremesa: (Pequena - Média - Grande");
+        tamanho = Console.lerString();
 
-        Sobremesa s = new Sobremesa(nome, preco, tipo);
+        Sobremesa s = new Sobremesa(nome, preco, tamanho);
         Cadastro.cadastrar(s);
         System.out.println("\nSobremesa cadastrada com sucesso!");
     }
@@ -86,7 +93,7 @@ public class Sistema {
 
     private static void buscarAlimento() {
         System.out.println("\nBuscar Alimento:");
-        System.out.print("Nome: ");
+        System.out.print("\nNome: ");
         nome = Console.lerString();
 
         Alimento a = Cadastro.buscar(nome);
@@ -120,4 +127,22 @@ public class Sistema {
             verificarOpcao(op);
         } while (op != 0);
     }
+    
+    public static void removerAlimento() {
+        System.out.print("\nDigite o nome do alimento a ser removido: ");
+        nome = Console.lerString();
+        Alimento a = Cadastro.buscar(nome);
+        if (a != null) {
+            Cadastro.getListaAlimento().remove(a);
+            System.out.println("\nAlimento " + nome + " encontrado e excluido!:");
+        } else {
+            System.out.println("\nNão encontramos o alimento:  " + nome);
+        }
+    }
+
+    public static void removerTodos() {
+        Cadastro.getListaAlimento().clear();
+        System.out.println("Todos alimentos foram removidos com sucesso :) !");
+    }
+
 }

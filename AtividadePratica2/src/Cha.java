@@ -16,7 +16,7 @@ public class Cha extends Alimento {
 
     @Override
     public String toString() {
-        return "quente ou frio =" + temperatura + "]";
+        return "\nNome do alimento: " + getNome() + "\npreço: " + getPreco() + "\nquente ou frio =" + temperatura;
     }
     
     

@@ -16,7 +16,7 @@ public class Pastel extends Alimento{
 
     @Override
     public String toString() {
-        return "sabor do pastel = " + sabor + "]";
+        return "\nNome do pastel: " + getNome() + "\npreço: " + getPreco() + "\nsabor do pastel = " + sabor;
     }
 
     
